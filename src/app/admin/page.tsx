@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminSideNavigation from './_components/page';
+import AdminSideNavigation from './_components/adminSideNavigation/page';
 
 const Admin = () => {
   return (
