@@ -1,5 +1,6 @@
 'use server';
 
+import { message } from 'antd';
 import { signIn } from '../api/_controllers/authentication';
 
 interface Credentials {
@@ -21,9 +22,8 @@ export async function authenticate(credentials: Credentials) {
       const errorData = await response.json();
       throw new Error(errorData.message || 'Something went wrong.');
     }
-    const responseData = await response.json();
-    console.log("Response data ", responseData)
-    return responseData;
+    console.log('Response data ', await response.json());
+    return {message: 'test'};
   } catch (error: any) {
     console.error('Error during authentication:', error);
 
