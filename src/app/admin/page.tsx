@@ -1,5 +1,8 @@
+'use client'
+
 import React from 'react';
 import AdminSideNavigation from './_components/adminSideNavigation/page';
+import CreatePost from './_components/posts/createPost';
 
 const Admin = () => {
   return (
@@ -8,7 +11,7 @@ const Admin = () => {
         <AdminSideNavigation />
       </section>
       <section className='w-full'>
-        COntent
+        <CreatePost />
       </section>
     </div>
   );
