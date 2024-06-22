@@ -1,29 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React from 'react';
 import Tiptap from './TipTap';
 
-const NotesPicker = () => {
-  const [content, setContent] = useState<string>('');
-  const handleContentChange = (reason: any) => {
-    setContent(reason);
+interface NotesPickerProps {
+  handleSubmit: (e: any) => void;
+  content: string;
+  setContent: (content: string) => void;
+}
+
+const NotesPicker: React.FC<NotesPickerProps> = ({
+  handleSubmit,
+  content,
+  setContent,
+}) => {
+  const handleContentChange = (content: any) => {
+    setContent(content);
   };
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    const data = {
-      id: uuidv4(),
-      content: content,
-    };
-    console.log(data);
-    const existingDataString = localStorage.getItem('myData');
-    const existingData = existingDataString
-      ? JSON.parse(existingDataString)
-      : [];
-    const updatedData = [...existingData, data];
-    localStorage.setItem('myData', JSON.stringify(updatedData));
-    setContent('');
-  };
+
   return (
     <form
       onSubmit={handleSubmit}

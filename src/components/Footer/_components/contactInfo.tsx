@@ -3,7 +3,7 @@ import { Constants } from '../../../Constants/page';
 
 const ContactInfo = () => {
   return (
-    <section className=' '>
+    <section className='items-center'>
       <h3 className='font-semibold'>
         {Constants.FOOTER.CONTACT_INFORMATION.HEADING}
       </h3>

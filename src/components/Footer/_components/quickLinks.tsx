@@ -4,14 +4,24 @@ import Link from 'next/link';
 
 const QuickLinks = () => {
   return (
-    <div>
-      <ul>
-        {Constants.FOOTER.QUICK_LINKS.map((item) => (
-          <li key={item.id}>
-            <Link className='hover:font-semibold transition-all hover:underline text-lg' href={item.link}>{item.name}</Link>
-          </li>
-        ))}
-      </ul>
+    <div className='flex w-full justify-end'>
+      <div className='flex flex-col'>
+        <h3 className='font-semibold'>
+          {Constants.FOOTER.QUICK_LINKS.HEADING}
+        </h3>
+        <ul className='pt-2'>
+          {Constants.FOOTER.QUICK_LINKS.LINKS.map((item) => (
+            <li key={item.id}>
+              <Link
+                className='text-lg transition-all hover:font-semibold hover:underline'
+                href={item.link}
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

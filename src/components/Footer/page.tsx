@@ -8,13 +8,15 @@ import { Constants } from '../../Constants/page';
 
 const Footer = () => {
   return (
-    <div className='bg-gray-900 text-white px-4'>
-      <div className='my-10 flex h-40 w-full items-center justify-between pt-4 pb-1'>
+    <div className='justify-evenly bg-gray-900 px-8 text-white'>
+      <div className='grid h-40 w-full grid-flow-col pb-1 pt-4'>
         <ContactInfo />
         <SocialIcons />
         <QuickLinks />
       </div>
-      <p className='flex w-full justify-end pb-3'>{Constants.FOOTER.COPY_RIGHT_TEXT}</p>
+      <p className='flex w-full justify-center -ml-24 pb-3'>
+        {Constants.FOOTER.COPY_RIGHT_TEXT}
+      </p>
     </div>
   );
 };

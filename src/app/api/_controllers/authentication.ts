@@ -1,7 +1,5 @@
 import { PrismaClient } from '@prisma/client';
 import { getJsonWebToken } from '../../../utils/Jsonwebtoken';
-import { NextResponse } from 'next/server';
-import { message } from 'antd';
 
 interface Credentials {
   email: string;

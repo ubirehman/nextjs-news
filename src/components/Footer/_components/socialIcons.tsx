@@ -5,12 +5,18 @@ import Image from 'next/image';
 
 const SocialIcons = () => {
   return (
-    <section className=' '>
+    <section className='items-center'>
       <h3 className='font-semibold'>{Constants.FOOTER.SOCIAL_ICONS.HEADING}</h3>
-      <ul className='gap-2'>
+      <ul className='gap-2 pt-2'>
         {Constants.FOOTER.SOCIAL_ICONS.LINKS.map((item) => (
-          <Link className='flex gap-2 p-1' key={item.id} href={item.link}>
-            <Image src={item.icon} alt={item.alt} width={30} height={30} />
+          <Link className='flex gap-2 group' key={item.id} href={item.link}>
+            <Image
+              src={item.icon}
+              alt={item.alt}
+              width={30}
+              height={30}
+              className='transition-all group-hover:scale-110'
+            />
             {item.name}
           </Link>
         ))}

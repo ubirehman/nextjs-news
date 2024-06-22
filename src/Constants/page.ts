@@ -34,31 +34,34 @@ export const Constants = {
           id: 1,
           name: 'Facebook',
           link: 'facebook.com',
-          icon: '/animated/socialicons/facebook.gif',
+          icon: '/animated/socialicons/facebook.svg',
           alt: 'facebook-icon',
         },
         {
           id: 2,
           name: 'Twitter',
           link: 'twitter.com',
-          icon: '/animated/socialicons/twitter.gif',
+          icon: '/animated/socialicons/twitter.svg',
           alt: 'twitter-icon',
         },
         {
           id: 3,
           name: 'Instagram',
           link: 'instagram.com',
-          icon: '/animated/socialicons/instagram.gif',
+          icon: '/animated/socialicons/instagram.svg',
           alt: 'instagram-icon',
         },
       ],
     },
-    QUICK_LINKS: [
-      { id: 1, name: 'Home', link: '/' },
-      { id: 2, name: 'About Us', link: '/about' },
-      { id: 1, name: 'Privacy Policy', link: '/privacy-policy' },
-      { id: 1, name: 'Contact Us', link: '/contact' },
-    ],
+    QUICK_LINKS: {
+      HEADING: 'Quick Links',
+      LINKS: [
+        { id: 1, name: 'Home', link: '/' },
+        { id: 2, name: 'About Us', link: '/about' },
+        { id: 1, name: 'Privacy Policy', link: '/privacy-policy' },
+        { id: 1, name: 'Contact Us', link: '/contact' },
+      ],
+    },
     COPY_RIGHT_TEXT: 'DeMessa News. All copyrights reserved',
   },
 
@@ -80,13 +83,31 @@ export const Constants = {
       ],
     },
 
-    CREATE_POST: {
-      TITLE: 'Title',
-      CONTENT: 'Content',
-      PUBLISH: 'Publish',
+    POSTS: {
+      CREATE_POST: {
+        HEADING: 'Create a new Post',
+        TITLE: 'Title',
+        CONTENT: 'Content',
+        PUBLISH: 'Publish',
+      },
+      ALL_POSTS: {
+        HEADING: 'All news articles',
+      },
     },
-    ALL_POSTS: {
-      HEADING: "All news articles"
-    }
+  },
+
+  POPUP_MESSAGES: {
+    USER_LOGEDIN_SUCCESS_MESSAGE: 'Logged in successfully',
+    USER_LOGEDIN_FAIL_MESSAGE: 'User or email incorrect',
+  },
+
+  BUTTON_TEXTS: {
+    EDIT: 'Edit',
+    DELETE: 'Delete',
+  },
+
+  API_LINKS: {
+    AUTHENTICATE: '/api/authenticate',
+    CREATE_POST: '/api/posts/create',
   },
 };

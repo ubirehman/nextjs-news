@@ -2,6 +2,7 @@
 
 import { message } from 'antd';
 import { signIn } from '../api/_controllers/authentication';
+import { Constants } from '../../Constants/page';
 
 interface Credentials {
   email: string;
@@ -10,13 +11,16 @@ interface Credentials {
 
 export async function authenticate(credentials: Credentials) {
   try {
-    const response = await fetch(`${process.env.SERVER_URL}/api/authenticate`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(credentials),
-    });
+    const response = await fetch(
+      `${process.env.SERVER_URL}${Constants.API_LINKS.AUTHENTICATE}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentials),
+      }
+    );
 
     if (!response.ok) {
       const errorData = await response.json();

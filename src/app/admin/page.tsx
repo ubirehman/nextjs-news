@@ -3,17 +3,32 @@
 import React, { useEffect, useState } from 'react';
 import AdminSideNavigation from './_components/adminSideNavigation/page';
 import CreatePost from './_components/posts/createPost';
-import { Constants } from '../../Constants/page';
-import { usePathname } from 'next/navigation';
 import AllPosts from './_components/posts/allPosts';
 
 const Admin = () => {
   const [hash, setHash] = useState(window.location.hash);
 
+  const [content, setContent] = useState<string>('');
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const data = {
+      content: content,
+    };
+    console.log(data);
+    sessionStorage.setItem('myData', JSON.stringify(data));
+    setContent('');
+  };
+
   const posts = () => {
     switch (hash) {
       case '#create':
-        return <CreatePost />;
+        return (
+          <CreatePost
+            handleSubmit={handleSubmit}
+            content={content}
+            setContent={setContent}
+          />
+        );
       case '#all':
         return <AllPosts />;
       default:
@@ -33,7 +48,7 @@ const Admin = () => {
     };
   }, []);
 
-  const toggleNavClick = (newHash) => {
+  const toggleNavClick = (newHash: string) => {
     window.location.hash = newHash;
     setHash(newHash);
   };

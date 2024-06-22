@@ -3,7 +3,8 @@ import React from 'react';
 import { authenticate } from '../lib/actions';
 import LoginForm from '../../components/LoginForm/page';
 import { useRouter } from 'next/navigation';
-
+import { Constants } from '../../Constants/page';
+import { failureNotify, successNotify } from '../../utils/Notifications';
 
 const Login = () => {
   const router = useRouter();
@@ -17,10 +18,14 @@ const Login = () => {
     };
 
     const auth = await authenticate(credential);
-    if (auth.success) {
-      router.push('/admin#all');
+    if (!auth.success) {
+      failureNotify(Constants.POPUP_MESSAGES.USER_LOGEDIN_FAIL_MESSAGE);
+      return;
     }
-    console.log(auth)
+    successNotify(Constants.POPUP_MESSAGES.USER_LOGEDIN_SUCCESS_MESSAGE);
+    setTimeout(() => {
+      router.push('/admin#all');
+    }, 1500);
   };
 
   return (
