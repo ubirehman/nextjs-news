@@ -15,6 +15,7 @@ import {
   Redo,
   Code,
 } from 'lucide-react';
+import { Constants } from '../../Constants/page';
 
 type Props = {
   editor: Editor | null;
@@ -30,9 +31,9 @@ const Toolbar = ({ editor, content }: Props) => {
       {content && (
         <button
           type='submit'
-          className='rounded-md bg-sky-700 px-4 py-2 text-white'
+          className='rounded-md bg-sky-700 px-4 py-2 text-lg font-semibold text-white'
         >
-          Publish
+          {Constants.ADMIN_PANEL.CREATE_POST.PUBLISH}
         </button>
       )}
       <div

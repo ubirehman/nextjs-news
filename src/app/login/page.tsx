@@ -1,17 +1,31 @@
 'use client';
 import React from 'react';
-import AntDLoginForm from '../../components/AntDLoginForm/page';
 import { authenticate } from '../lib/actions';
+import LoginForm from '../../components/LoginForm/page';
+import { useRouter } from 'next/navigation';
 
-interface credentials {
-  email: string;
-  password: string;
-}
 
 const Login = () => {
+  const router = useRouter();
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const credential = {
+      email: e.target[0].value,
+      password: e.target[1].value,
+    };
+
+    const auth = await authenticate(credential);
+    if (auth.success) {
+      router.push('/admin#all');
+    }
+    console.log(auth)
+  };
+
   return (
     <div className='h-[75vh]'>
-      <AntDLoginForm handleSubmit={(e: credentials) => authenticate(e)} />
+      <LoginForm handleSubmit={handleSubmit} />
     </div>
   );
 };

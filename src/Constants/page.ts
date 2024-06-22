@@ -59,7 +59,7 @@ export const Constants = {
       { id: 1, name: 'Privacy Policy', link: '/privacy-policy' },
       { id: 1, name: 'Contact Us', link: '/contact' },
     ],
-    COPY_RIGHT_TEXT: "DeMessa News. All copyrights reserved"
+    COPY_RIGHT_TEXT: 'DeMessa News. All copyrights reserved',
   },
 
   HEADER_NAVIGATION_LINKS: [
@@ -71,16 +71,22 @@ export const Constants = {
   HIGHLIGHT_NEWS:
     'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque sed impedit illo quae accusamus praesentium laborum ut odio. Itaque, voluptatem? Animi consectetur beatae molestiae totam aut ducimus, optio ad laudantium.',
 
-ADMIN_PANEL:{
-  SIDE_BAR:{
-    SIDEBAR_LINKS:[
-      {id: 0, name: "Create Post", link: "/admin/#create"},
-      {id: 1, name: "Drafts", link: "/admin/#drafts"},
-      {id: 2, name: "All Posts", link: "/admin/#all"},
-    ]
-  }
-}
+  ADMIN_PANEL: {
+    SIDE_BAR: {
+      SIDEBAR_LINKS: [
+        { id: 0, name: 'Create Post', link: '/admin/#create', hash: '#create' },
+        { id: 1, name: 'Drafts', link: '/admin/#drafts', hash: '#drafts' },
+        { id: 2, name: 'All Posts', link: '/admin/#all', hash: '#all' },
+      ],
+    },
 
-
-
-  };
+    CREATE_POST: {
+      TITLE: 'Title',
+      CONTENT: 'Content',
+      PUBLISH: 'Publish',
+    },
+    ALL_POSTS: {
+      HEADING: "All news articles"
+    }
+  },
+};
