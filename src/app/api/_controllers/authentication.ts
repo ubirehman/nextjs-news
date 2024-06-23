@@ -6,9 +6,8 @@ interface Credentials {
   password: string;
 }
 
-const prisma = new PrismaClient();
-
 export const signIn = async (data: Credentials) => {
+  const prisma = new PrismaClient();
   try {
     const user = await prisma.user.findUnique({
       where: {
@@ -24,11 +23,11 @@ export const signIn = async (data: Credentials) => {
     const token = getJsonWebToken(rest.email);
     rest.token = token;
 
-    return ({
+    return {
       success: true,
       message: 'Admin signed in successfully',
       user: rest,
-    });
+    };
   } catch (error) {
     console.error('Error during sign-in:', error);
     throw new Error('Failed to sign in');
@@ -36,4 +35,3 @@ export const signIn = async (data: Credentials) => {
     await prisma.$disconnect();
   }
 };
-

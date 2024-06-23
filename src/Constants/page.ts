@@ -109,5 +109,7 @@ export const Constants = {
   API_LINKS: {
     AUTHENTICATE: '/api/authenticate',
     CREATE_POST: '/api/posts/create',
+    FETCH_POSTS: '/api/posts',
+    DELETE_POST: '/api/posts/delete'
   },
 };

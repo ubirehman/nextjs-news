@@ -1,7 +1,5 @@
 'use server';
 
-import { message } from 'antd';
-import { signIn } from '../api/_controllers/authentication';
 import { Constants } from '../../Constants/page';
 
 interface Credentials {
@@ -12,7 +10,7 @@ interface Credentials {
 export async function authenticate(credentials: Credentials) {
   try {
     const response = await fetch(
-      `${process.env.SERVER_URL}${Constants.API_LINKS.AUTHENTICATE}`,
+      `${process.env.NEXT_PUBLIC_SERVER_URL}${Constants.API_LINKS.AUTHENTICATE}`,
       {
         method: 'POST',
         headers: {

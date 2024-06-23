@@ -3,15 +3,19 @@ import NotesPicker from '../../../../components/TipTap/NotesPicker';
 import { Constants } from '../../../../Constants/page';
 
 interface CreatePostProps {
-  handleSubmit: (e: any) => void;
+  title: string;
+  setTitle: (title: string) => void;
   content: string;
   setContent: (content: string) => void;
+  handleSubmit: (e: any) => void;
 }
 
 const CreatePost: React.FC<CreatePostProps> = ({
-  handleSubmit,
+  title,
+  setTitle,
   content,
   setContent,
+  handleSubmit,
 }) => {
   return (
     <div className=' h-[75vh] w-full gap-6 rounded-xl border-[1px] p-2 px-4'>
@@ -26,7 +30,8 @@ const CreatePost: React.FC<CreatePostProps> = ({
         <input
           name='title'
           type='text'
-          className='rounded-lg border-[1px] px-4 py-1'
+          className='rounded-md border-[1px] border-black px-4 py-1'
+          onChange={(e) => setTitle(e.target.value)}
         />
       </section>
       <section className=''>

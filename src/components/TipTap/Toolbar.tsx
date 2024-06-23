@@ -33,7 +33,7 @@ const Toolbar = ({ editor, content }: Props) => {
           type='submit'
           className='rounded-md bg-sky-700 px-4 py-2 text-lg font-semibold text-white'
         >
-          {Constants.ADMIN_PANEL.CREATE_POST.PUBLISH}
+          {Constants.ADMIN_PANEL.POSTS.CREATE_POST.PUBLISH}
         </button>
       )}
       <div

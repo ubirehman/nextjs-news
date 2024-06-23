@@ -1,10 +1,15 @@
 import React from 'react';
-import Notes from '../../../../components/TipTap/Notes';
-import NotesPicker from '../../../../components/TipTap/NotesPicker';
 import { Constants } from '../../../../Constants/page';
 import IndividualPostExcerpt from './_components/IndividualPostExcerpt';
+import { allPostsProps } from '../../page';
+import { formatDate } from '../../../../utils/DateFormatter';
 
-const AllPosts = () => {
+interface AllPostsProps {
+  allPosts: allPostsProps[];
+  handleDelete: (id: number) => void;
+}
+
+const AllPosts: React.FC<AllPostsProps> = ({ allPosts, handleDelete }) => {
   return (
     <div className=' h-[75vh] w-full gap-6 rounded-xl border-[1px] p-2 px-4'>
       <section className='flex flex-col gap-2 py-3'>
@@ -13,13 +18,16 @@ const AllPosts = () => {
         </h2>
       </section>
       <section className='flex h-[600px] flex-col gap-2 overflow-y-auto pt-5'>
-        <IndividualPostExcerpt title='test' paraExcerpt='ASDASD' />
-        <IndividualPostExcerpt title='test' paraExcerpt='ASDASD' />
-        <IndividualPostExcerpt title='test' paraExcerpt='ASDASD' />
-        <IndividualPostExcerpt title='test' paraExcerpt='ASDASD' />
-        <IndividualPostExcerpt title='test' paraExcerpt='ASDASD' />
-        <IndividualPostExcerpt title='test' paraExcerpt='ASDASD' />
-        <IndividualPostExcerpt title='test' paraExcerpt='ASDASD' />
+        {allPosts.map((item) => (
+          <IndividualPostExcerpt
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            paraExcerpt={item.content}
+            postsCreationDate={formatDate(item.createdAt)}
+            handleDelete={handleDelete}
+          />
+        ))}
       </section>
     </div>
   );
