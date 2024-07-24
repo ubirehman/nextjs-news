@@ -2,7 +2,7 @@ import React from 'react'
 
 const PrivacyPolicy = () => {
   return (
-    <div className='h-[75vh]'>PrivacyPolicy</div>
+    <div className='min-h-[75vh]'>PrivacyPolicy</div>
   )
 }
 

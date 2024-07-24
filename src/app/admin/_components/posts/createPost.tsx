@@ -18,7 +18,7 @@ const CreatePost: React.FC<CreatePostProps> = ({
   handleSubmit,
 }) => {
   return (
-    <div className=' h-[75vh] w-full gap-6 rounded-xl border-[1px] p-2 px-4'>
+    <div className='min-h-[75vh] w-full gap-6 rounded-xl border-[1px] p-2 px-4'>
       <h1 className='text-3xl font-semibold'>
         {Constants.ADMIN_PANEL.POSTS.CREATE_POST.HEADING}
       </h1>

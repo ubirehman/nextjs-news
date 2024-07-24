@@ -49,6 +49,29 @@ export const getAllPosts = async () => {
   }
 };
 
+export const getPostById = async (id: number) => {
+  const prisma = new PrismaClient();
+  const integerID = parseInt(id[0]);
+  try {
+    const post = await prisma.post.findFirst({
+      where: {
+        id: integerID,
+      },
+    });
+
+    return {
+      success: true,
+      message: 'Posts fetched successfully',
+      post,
+    };
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    await prisma.$disconnect();
+  }
+};
+
 export const deletePost = async (id: number) => {
   const prisma = new PrismaClient();
   const integerID = parseInt(id[0]);

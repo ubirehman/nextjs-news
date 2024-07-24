@@ -11,7 +11,7 @@ interface AllPostsProps {
 
 const AllPosts: React.FC<AllPostsProps> = ({ allPosts, handleDelete }) => {
   return (
-    <div className=' h-[75vh] w-full gap-6 rounded-xl border-[1px] p-2 px-4'>
+    <div className='min-h-[75vh] w-full gap-6 rounded-xl border-[1px] p-2 px-4'>
       <section className='flex flex-col gap-2 py-3'>
         <h2 className='text-2xl font-semibold'>
           {Constants.ADMIN_PANEL.POSTS.ALL_POSTS.HEADING}

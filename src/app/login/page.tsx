@@ -29,7 +29,7 @@ const Login = () => {
   };
 
   return (
-    <div className='h-[75vh]'>
+    <div className='min-h-[75vh]'>
       <LoginForm handleSubmit={handleSubmit} />
     </div>
   );

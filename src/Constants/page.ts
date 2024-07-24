@@ -99,6 +99,8 @@ export const Constants = {
   POPUP_MESSAGES: {
     USER_LOGEDIN_SUCCESS_MESSAGE: 'Logged in successfully',
     USER_LOGEDIN_FAIL_MESSAGE: 'User or email incorrect',
+    FAILURE_DELETE_POST: 'Unable to delete the post',
+    SUCCESS_DELETE_POST: 'Post deleted successfully',
   },
 
   BUTTON_TEXTS: {
@@ -110,6 +112,7 @@ export const Constants = {
     AUTHENTICATE: '/api/authenticate',
     CREATE_POST: '/api/posts/create',
     FETCH_POSTS: '/api/posts',
-    DELETE_POST: '/api/posts/delete'
+    DELETE_POST: '/api/posts/delete',
+    GET_POST_BY_ID: '/api/posts/{id}'
   },
 };

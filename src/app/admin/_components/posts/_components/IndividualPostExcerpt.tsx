@@ -19,7 +19,7 @@ const IndividualPostExcerpt: React.FC<individualPostExcerptProps> = ({
   handleDelete,
 }) => {
   return (
-    <div className='max-h-[200px] rounded-lg border-[1px] p-4'>
+    <div className='max-h-[220px] rounded-lg border-[1px] p-4'>
       <h2 className='text-2xl font-semibold'>{title}</h2>
       <p>{trimText(paraExcerpt)}</p>
       <section className='flex w-full py-3'>

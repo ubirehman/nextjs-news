@@ -7,6 +7,7 @@ import AdminSideNavigation from './_components/adminSideNavigation/page';
 import CreatePost from './_components/posts/createPost';
 import AllPosts from './_components/posts/allPosts';
 import { Constants } from '../../Constants/page';
+import { failureNotify, successNotify } from '../../utils/Notifications';
 
 export interface allPostsProps {
   id: number;
@@ -49,11 +50,20 @@ const Admin = () => {
 
   const handleDelete = async (id: number) => {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}${Constants.API_LINKS.DELETE_POST}`
+      `${process.env.NEXT_PUBLIC_SERVER_URL}${Constants.API_LINKS.DELETE_POST}/${id}`,
+      {
+        method: 'delete',
+      }
     );
 
     const { data } = await response.json();
-   
+
+    if (!data.success) {
+      failureNotify(Constants.POPUP_MESSAGES.FAILURE_DELETE_POST);
+      return;
+    }
+    successNotify(Constants.POPUP_MESSAGES.SUCCESS_DELETE_POST);
+    setAllPosts(data.posts);
   };
 
   const posts = () => {
@@ -69,7 +79,6 @@ const Admin = () => {
           />
         );
       case '#all':
-        fetchAllPosts();
         return <AllPosts allPosts={allPosts} handleDelete={handleDelete} />;
       default:
         return null;
@@ -84,6 +93,9 @@ const Admin = () => {
   useEffect(() => {
     const handleHashChange = () => {
       setHash(window.location.hash);
+      if (window.location.hash === '#all') {
+        fetchAllPosts();
+      }
     };
 
     window.addEventListener('hashchange', handleHashChange);
